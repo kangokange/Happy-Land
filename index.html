@@ -431,11 +431,28 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Rabih G Ajjoub .</p>
+                <p>&copy; 2025 Rabih G Ajjoub . <a href="admin.html"  target="_blank" style="color: #fff;">Admin</a></p>
             </div>
         </div>
     </footer>
-
+    <script>
+        // Load saved prices when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const updates = localStorage.getItem('menuPriceUpdates');
+            if (updates) {
+                const priceUpdates = JSON.parse(updates);
+                
+                priceUpdates.forEach(update => {
+                    const priceElement = document.querySelector(
+                        `#${update.category} .menu-item:nth-child(${update.index + 1}) .menu-item-price`
+                    );
+                    if (priceElement) {
+                        priceElement.textContent = update.newPrice;
+                    }
+                });
+            }
+        });
+        </script>
     <script src="js/script.js"></script>
 </body>
 </html>

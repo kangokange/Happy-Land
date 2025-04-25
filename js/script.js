@@ -70,3 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations when page loads
     animateMenuItems();
 });
+
+(document.getElementById('cb').innerHTML=localStorage.getItem('price'));
+(document.getElementById('cc').innerHTML=localStorage.getItem('price1'));
